@@ -7,7 +7,7 @@ from django.urls import reverse
 from notes.models import Note
 
 User = get_user_model()
-COUNT = 3
+COUNT: int = 3  # Количество заметок, создаваемых в тесте
 
 
 class TestDetailPage(TestCase):
