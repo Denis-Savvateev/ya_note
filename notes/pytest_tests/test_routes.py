@@ -77,7 +77,7 @@ def test_pages_availability_for_different_users(
 
 
 @pytest.mark.parametrize(
-    # Вторым параметром передаём note_object, 
+    # Вторым параметром передаём note_object,
     # в котором будет либо фикстура с объектом заметки, либо None.
     'name, args',
     (
@@ -91,6 +91,7 @@ def test_pages_availability_for_different_users(
 )
 # Передаём в тест анонимный клиент, name проверяемых страниц и args:
 def test_redirects(client, name, args):
+    """Проверь соответствие перенаправлений."""
     login_url = reverse('users:login')
     # Формируем URL в зависимости от того, передан ли объект заметки:
     # if note_object is not None:
