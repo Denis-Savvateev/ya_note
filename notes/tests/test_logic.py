@@ -62,17 +62,19 @@ class TestNoteEditDelete(NoteTest):
 
     def test_author_can_delete_note(self):
         """Проверь возможность автора удалить заметку."""
+        notes_count_before = Note.objects.count()
         response = self.author_client.delete(self.delete_url)
         self.assertRedirects(response, SUCCESS_URL)
         notes_count = Note.objects.count()
-        self.assertEqual(notes_count, 0)
+        self.assertEqual(notes_count, notes_count_before - 1)
 
     def test_reader_can_t_delete_note(self):
         """Проверь невозможность пользователя удалить чужую заметку."""
+        notes_count_before = Note.objects.count()
         response = self.reader_client.delete(self.delete_url)
         self.assertEqual(response.status_code, HTTPStatus.NOT_FOUND)
         notes_count = Note.objects.count()
-        self.assertEqual(notes_count, 1)
+        self.assertEqual(notes_count, notes_count_before)
 
     def test_author_can_edit_note(self):
         """Проверь возможность автора править заметку."""

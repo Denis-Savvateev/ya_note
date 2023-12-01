@@ -11,9 +11,13 @@ TEXT = 'Текст 100500'
 SLUG = 'zametka-100500'
 NEW_TITLE = 'Заметка 1005001'
 NEW_TEXT = 'Текст 2 1005001'
+HOME_URL = reverse('notes:home')
 ADD_URL = reverse('notes:add')
 SUCCESS_URL = reverse('notes:success')
+LIST_URL = reverse('notes:list')
 LOGIN_URL = reverse('users:login')
+LOGOUT_URL = reverse('users:logout')
+SIGNUP_URL = reverse('users:signup')
 USER = get_user_model()
 FORM_DATA = {
     'title': TITLE,

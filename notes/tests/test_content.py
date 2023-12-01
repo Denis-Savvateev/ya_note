@@ -1,13 +1,10 @@
 """Модуль тестирования контента."""
 
 from django import forms
-# from django.contrib.auth import get_user_model
 from django.urls import reverse
 
 from notes.models import Note
 from notes.tests.const import NoteTest
-
-# User = get_user_model()
 
 
 class TestDetailPage(NoteTest):
